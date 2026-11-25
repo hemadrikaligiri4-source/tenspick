@@ -1,0 +1,1056 @@
+// Tenspick Client Portal Initial Mock Data & Schema
+// Based on Tenspick Client Portal Requirements & Content Document v1.0
+
+export const ROLES = {
+  CLIENT: 'client',
+  CLIENT_TEAM: 'client_team',
+  PROJECT_MANAGER: 'project_manager',
+  TEAM_MEMBER: 'team_member',
+  ADMIN: 'admin',
+};
+
+export const PERSONAS = [
+  {
+    id: 'user_client_1',
+    role: ROLES.CLIENT,
+    name: 'Sarah Jenkins',
+    email: 'sarah.jenkins@acmecorp.io',
+    company: 'Acme Technologies Inc.',
+    title: 'Founder & CEO',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
+    canApprove: true,
+    phone: '+1 (555) 382-9901',
+    gstNumber: '29ABCDE1234F1Z5',
+  },
+  {
+    id: 'user_client_team_1',
+    role: ROLES.CLIENT_TEAM,
+    name: 'David Chen',
+    email: 'david.chen@acmecorp.io',
+    company: 'Acme Technologies Inc.',
+    title: 'Head of Product Marketing',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+    canApprove: false, // approval restricted as per doc
+    phone: '+1 (555) 789-4432',
+    gstNumber: '29ABCDE1234F1Z5',
+  },
+  {
+    id: 'user_pm_1',
+    role: ROLES.PROJECT_MANAGER,
+    name: 'Alex Rivera',
+    email: 'alex.rivera@tenspick.com',
+    company: 'Tenspick',
+    title: 'Senior Project Manager',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    phone: '+91 98765 43210',
+    whatsapp: '+919876543210',
+  },
+  {
+    id: 'user_dev_1',
+    role: ROLES.TEAM_MEMBER,
+    name: 'Elena Rostova',
+    email: 'elena.rostova@tenspick.com',
+    company: 'Tenspick',
+    title: 'Lead Full-Stack Developer & UI/UX',
+    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80',
+    phone: '+91 98765 43211',
+    whatsapp: '+919876543211',
+  },
+  {
+    id: 'user_admin_1',
+    role: ROLES.ADMIN,
+    name: 'Kavita Sundaram',
+    email: 'admin@tenspick.com',
+    company: 'Tenspick Creative & Tech',
+    title: 'Agency Director / Super Admin',
+    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80',
+    phone: '+91 98765 00000',
+    whatsapp: '+919876500000',
+  },
+];
+
+export const INITIAL_PROJECTS = [
+  {
+    id: 'TP-2026-014',
+    name: 'Nexus AI SaaS Platform & Mobile App',
+    serviceType: 'Mobile / Application Development and SaaS',
+    status: 'In Progress',
+    progress: 68,
+    startDate: '2026-10-12',
+    expectedDate: '2026-12-20',
+    actualDeliveryDate: null,
+    pm: {
+      name: 'Alex Rivera',
+      role: 'Project Manager',
+      email: 'alex.rivera@tenspick.com',
+      phone: '+91 98765 43210',
+      whatsapp: '+919876543210',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    },
+    teamMembers: [
+      { name: 'Elena Rostova', role: 'Lead Full-Stack & UI/UX' },
+      { name: 'Rohan Mehta', role: 'React Native & iOS Specialist' },
+      { name: 'Arjun Das', role: 'AI & Backend Systems Architect' },
+    ],
+    scope: {
+      summary: 'Complete multi-tenant SaaS web portal, companion React Native iOS & Android application, AI document processing automation, and Stripe subscription billing.',
+      items: [
+        { title: 'User authentication (OAuth, 2FA & Magic Link)', status: 'Completed' },
+        { title: 'Interactive Analytics & Metrics Dashboard', status: 'Completed' },
+        { title: 'AI Document Summarizer & Extraction Pipeline', status: 'Completed' },
+        { title: 'iOS TestFlight & Android APK builds', status: 'In Progress' },
+        { title: 'Stripe Billing, Invoicing & Subscription Tiers', status: 'In Review' },
+        { title: 'App Store & Google Play publishing setup', status: 'Pending' },
+      ],
+    },
+    milestones: [
+      {
+        id: 'm1',
+        name: 'Discover and Define',
+        status: 'Completed',
+        dueDate: '2026-10-24',
+        completedDate: '2026-10-23',
+        description: 'Requirement SRS document, wireframes, user journeys, and database entity relationships.',
+      },
+      {
+        id: 'm2',
+        name: 'Design and Build',
+        status: 'In Progress',
+        dueDate: '2026-11-30',
+        completedDate: null,
+        description: 'Interactive Figma design system, core SaaS frontend, API endpoints, AI models, and mobile builds.',
+      },
+      {
+        id: 'm3',
+        name: 'Launch and Grow',
+        status: 'Pending',
+        dueDate: '2026-12-20',
+        completedDate: null,
+        description: 'App store submission, staging security testing, production rollout, user training, and warranty period.',
+      },
+    ],
+    clientNeeds: [
+      { id: 'cn-1', title: 'Stripe Live API keys & Webhook secrets', status: 'Pending', dueDate: '2026-11-26', category: 'Credentials' },
+      { id: 'cn-2', title: 'Apple Developer Account Team Invitation', status: 'Received', dueDate: '2026-11-18', category: 'Access' },
+      { id: 'cn-3', title: 'High-res Vector Brand Icons & Splash Assets', status: 'Received', dueDate: '2026-10-20', category: 'Assets' },
+      { id: 'cn-4', title: 'Final Review on v2 SaaS Billing Flow', status: 'Pending', dueDate: '2026-11-28', category: 'Approvals' },
+    ],
+    revisions: {
+      included: 3,
+      used: 1,
+      policyNote: '3 major design revisions included in contract. Additional revisions billed at standard hourly rates.',
+    },
+    handoverChecklist: [
+      { id: 'hc-1', item: 'All final source files and GitHub repository transferred', checked: false },
+      { id: 'hc-2', item: 'Production cloud hosting, SSL, and DNS credentials handed over', checked: false },
+      { id: 'hc-3', item: 'Admin panel login and walkthrough training completed', checked: false },
+      { id: 'hc-4', item: 'Final project invoice settled in full', checked: false },
+      { id: 'hc-5', item: '90-Day Free Warranty & SLA support activated', checked: false },
+      { id: 'hc-6', item: 'Annual Maintenance Contract (AMC) proposal reviewed', checked: false },
+    ],
+    activityLog: [
+      { id: 'act-1', user: 'Elena Rostova', action: 'Uploaded new deliverable: Mobile App v2 Prototype (Figma)', timestamp: 'Today at 03:45 PM', type: 'upload' },
+      { id: 'act-2', user: 'Alex Rivera', action: 'Posted weekly project milestone report', timestamp: 'Yesterday at 05:20 PM', type: 'update' },
+      { id: 'act-3', user: 'Sarah Jenkins', action: 'Approved deliverable: SaaS API Architecture & Schema (v1)', timestamp: '2 days ago', type: 'approval' },
+      { id: 'act-4', user: 'David Chen', action: 'Requested changes on Mobile Onboarding Screen #3', timestamp: '3 days ago', type: 'feedback' },
+      { id: 'act-5', user: 'Alex Rivera', action: 'Created project milestone: Design and Build', timestamp: 'Oct 24, 2026', type: 'milestone' },
+    ],
+  },
+  {
+    id: 'TP-2026-008',
+    name: 'Aura Luxury Brand Identity & E-commerce',
+    serviceType: 'Web Development and E-commerce',
+    status: 'In Review',
+    progress: 88,
+    startDate: '2026-09-01',
+    expectedDate: '2026-11-30',
+    actualDeliveryDate: null,
+    pm: {
+      name: 'Alex Rivera',
+      role: 'Project Manager',
+      email: 'alex.rivera@tenspick.com',
+      phone: '+91 98765 43210',
+      whatsapp: '+919876543210',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    },
+    teamMembers: [
+      { name: 'Elena Rostova', role: 'E-commerce Designer' },
+      { name: 'Sameer Khan', role: 'Shopify Liquid & Headless Dev' },
+    ],
+    scope: {
+      summary: 'High-converting headless luxury lifestyle e-commerce store with 3D product previews, custom cart drawer, and complete brand identity guidelines.',
+      items: [
+        { title: 'Brand logo suite (Vector, SVG, Dark/Light palettes)', status: 'Completed' },
+        { title: 'High-fidelity Figma mockups for all 18 store pages', status: 'Completed' },
+        { title: 'Headless Next.js + Shopify storefront integration', status: 'Completed' },
+        { title: 'Staging website speed & cross-browser QA testing', status: 'In Review' },
+        { title: 'Payment gateway integration & checkout optimization', status: 'In Review' },
+      ],
+    },
+    milestones: [
+      { id: 'm1_aura', name: 'Discover and Define', status: 'Completed', dueDate: '2026-09-15', completedDate: '2026-09-14', description: 'Brand positioning, competitive audit, moodboards.' },
+      { id: 'm2_aura', name: 'Design and Build', status: 'Completed', dueDate: '2026-10-30', completedDate: '2026-10-28', description: 'Complete Figma designs and Shopify headless development.' },
+      { id: 'm3_aura', name: 'Launch and Grow', status: 'In Progress', dueDate: '2026-11-30', completedDate: null, description: 'Speed audit, live deployment, domain mapping, DNS propagation.' },
+    ],
+    clientNeeds: [
+      { id: 'cn-aura-1', title: 'Product catalog CSV & 4K product photos', status: 'Received', dueDate: '2026-09-20', category: 'Content' },
+      { id: 'cn-aura-2', title: 'Payment gateway merchant account details', status: 'Received', dueDate: '2026-10-15', category: 'Credentials' },
+      { id: 'cn-aura-3', title: 'Final Staging Review and Sign-off', status: 'Pending', dueDate: '2026-11-28', category: 'Approvals' },
+    ],
+    revisions: {
+      included: 3,
+      used: 2,
+      policyNote: '1 free revision remaining. 2 used on homepage hero & cart drawer.',
+    },
+    handoverChecklist: [
+      { id: 'hc-aura-1', item: 'All final SVG, PNG, PDF logo vectors and brand guidelines shared', checked: true },
+      { id: 'hc-aura-2', item: 'Shopify Collaborator ownership transferred to client', checked: false },
+      { id: 'hc-aura-3', item: 'Store manager video walkthrough and inventory training recorded', checked: true },
+      { id: 'hc-aura-4', item: 'Final milestone invoice paid', checked: false },
+      { id: 'hc-aura-5', item: '60-Day post-launch warranty active', checked: false },
+    ],
+    activityLog: [
+      { id: 'act-a1', user: 'Alex Rivera', action: 'Uploaded Final Staging Link & Testing Report', timestamp: 'Yesterday at 02:15 PM', type: 'upload' },
+      { id: 'act-a2', user: 'David Chen', action: 'Approved deliverable: Brand Identity Guide & Logo Suite', timestamp: 'Nov 12, 2026', type: 'approval' },
+      { id: 'act-a3', user: 'Elena Rostova', action: 'Shared test order walkthrough video', timestamp: 'Nov 10, 2026', type: 'update' },
+    ],
+  },
+  {
+    id: 'TP-2026-022',
+    name: 'FlowSync Omnichannel AI Automation & CRM',
+    serviceType: 'AI Automation',
+    status: 'In Progress',
+    progress: 42,
+    startDate: '2026-11-05',
+    expectedDate: '2027-01-15',
+    actualDeliveryDate: null,
+    pm: {
+      name: 'Alex Rivera',
+      role: 'Project Manager',
+      email: 'alex.rivera@tenspick.com',
+      phone: '+91 98765 43210',
+      whatsapp: '+919876543210',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    },
+    teamMembers: [
+      { name: 'Arjun Das', role: 'AI Automation Engineer' },
+      { name: 'Elena Rostova', role: 'CRM Frontend Specialist' },
+    ],
+    scope: {
+      summary: 'Autonomous customer support agent on WhatsApp, lead enrichment from inbound forms into HubSpot/Postgres, and daily Slack executive digest summaries.',
+      items: [
+        { title: 'WhatsApp Business API & Meta Webhooks configuration', status: 'Completed' },
+        { title: 'LLM Agent prompt engineering and vector knowledge base', status: 'In Progress' },
+        { title: 'HubSpot & Google Sheets real-time synchronization', status: 'In Progress' },
+        { title: 'Fallback human-in-the-loop escalation dashboard', status: 'Pending' },
+      ],
+    },
+    milestones: [
+      { id: 'm1_flow', name: 'Discover and Define', status: 'Completed', dueDate: '2026-11-15', completedDate: '2026-11-14', description: 'Workflow architecture diagrams, trigger definitions, and schema design.' },
+      { id: 'm2_flow', name: 'Design and Build', status: 'In Progress', dueDate: '2026-12-22', completedDate: null, description: 'Tool integrations (WhatsApp, Sheets, CRM) and test outputs.' },
+      { id: 'm3_flow', name: 'Launch and Grow', status: 'Pending', dueDate: '2027-01-15', completedDate: null, description: 'Monitoring, error handling, client training, and handover.' },
+    ],
+    clientNeeds: [
+      { id: 'cn-f-1', title: 'Meta WhatsApp Business Account Verification ID', status: 'Pending', dueDate: '2026-11-27', category: 'Access' },
+      { id: 'cn-f-2', title: 'Product FAQs & Past Support Conversation Logs', status: 'Received', dueDate: '2026-11-12', category: 'Content' },
+    ],
+    revisions: {
+      included: 3,
+      used: 0,
+      policyNote: 'All 3 revision cycles intact.',
+    },
+    handoverChecklist: [
+      { id: 'hc-f-1', item: 'Workflow blueprints & architecture diagrams exported', checked: false },
+      { id: 'hc-f-2', item: 'API keys, webhook endpoints, and environment variables transferred', checked: false },
+      { id: 'hc-f-3', item: 'Support staff training on human agent escalation completed', checked: false },
+      { id: 'hc-f-4', item: 'Monitoring and error logging dashboard access enabled', checked: false },
+    ],
+    activityLog: [
+      { id: 'act-f1', user: 'Arjun Das', action: 'Uploaded deliverable: AI Architecture Workflow Diagram v1', timestamp: 'Today at 11:20 AM', type: 'upload' },
+      { id: 'act-f2', user: 'Alex Rivera', action: 'Updated project milestone: Discover and Define (Completed)', timestamp: 'Nov 14, 2026', type: 'milestone' },
+    ],
+  },
+  {
+    id: 'TP-2026-003',
+    name: 'FinPulse B2B Enterprise Portal',
+    serviceType: 'CRM, POS and Custom Software',
+    status: 'Completed',
+    progress: 100,
+    startDate: '2026-06-10',
+    expectedDate: '2026-10-15',
+    actualDeliveryDate: '2026-10-12',
+    pm: {
+      name: 'Alex Rivera',
+      role: 'Project Manager',
+      email: 'alex.rivera@tenspick.com',
+      phone: '+91 98765 43210',
+      whatsapp: '+919876543210',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    },
+    teamMembers: [
+      { name: 'Elena Rostova', role: 'Full-Stack Lead' },
+      { name: 'Arjun Das', role: 'Database Architect' },
+    ],
+    scope: {
+      summary: 'Enterprise financial reconciliation, custom multi-role permission dashboard, CSV/PDF batch payroll generator, and audit logging engine.',
+      items: [
+        { title: 'Database schema & security compliance', status: 'Completed' },
+        { title: 'Interactive ledger reconciliation interface', status: 'Completed' },
+        { title: 'Automated tax & GST invoice batch generator', status: 'Completed' },
+        { title: 'Role-based access control (RBAC) & audit log', status: 'Completed' },
+      ],
+    },
+    milestones: [
+      { id: 'm1_fin', name: 'Discover and Define', status: 'Completed', dueDate: '2026-06-30', completedDate: '2026-06-28', description: 'Requirement specifications and database design.' },
+      { id: 'm2_fin', name: 'Design and Build', status: 'Completed', dueDate: '2026-09-15', completedDate: '2026-09-12', description: 'Core ERP system and module demo videos.' },
+      { id: 'm3_fin', name: 'Launch and Grow', status: 'Completed', dueDate: '2026-10-15', completedDate: '2026-10-12', description: 'Final handover, staff training, and warranty launch.' },
+    ],
+    clientNeeds: [],
+    revisions: {
+      included: 3,
+      used: 3,
+      policyNote: 'All revisions concluded successfully with client sign-off.',
+    },
+    handoverChecklist: [
+      { id: 'hc-fin-1', item: 'All final source files and GitHub repository transferred', checked: true },
+      { id: 'hc-fin-2', item: 'Production cloud hosting, SSL, and credentials handed over', checked: true },
+      { id: 'hc-fin-3', item: 'Admin walkthrough and training video recordings delivered', checked: true },
+      { id: 'hc-fin-4', item: 'Final project invoice settled in full', checked: true },
+      { id: 'hc-fin-5', item: '90-Day Free Warranty period active (Ends Jan 10, 2027)', checked: true },
+      { id: 'hc-fin-6', item: 'Annual Maintenance Contract (AMC) active', checked: true },
+    ],
+    activityLog: [
+      { id: 'act-fin1', user: 'Sarah Jenkins', action: 'Submitted Final Project Feedback Form (Rated 5/5 Stars)', timestamp: 'Oct 14, 2026', type: 'feedback' },
+      { id: 'act-fin2', user: 'Alex Rivera', action: 'Completed final handover checklist and transferred master credentials', timestamp: 'Oct 12, 2026', type: 'handover' },
+    ],
+  },
+];
+
+export const INITIAL_DELIVERABLES = [
+  {
+    id: 'del-101',
+    projectId: 'TP-2026-014',
+    milestoneId: 'm2',
+    name: 'Nexus Mobile App UI/UX Mockups & Interactive Prototype',
+    service: 'Mobile / Application Development and SaaS',
+    version: 'v2',
+    status: 'Under Review', // Pending, Delivered, Under Review, Changes Requested, Approved
+    uploadDate: '2026-11-23',
+    dueDate: '2026-11-28',
+    fileType: 'image_prototype',
+    previewUrl: 'https://images.unsplash.com/photo-1616469829941-c7200edec809?w=1200&auto=format&fit=crop&q=80',
+    description: 'Complete high-fidelity mobile application flows: Authentication, Interactive Dashboard, AI Document Scanner, and Real-Time Chat with Tenspick.',
+    notesFromTeam: 'Please review the updated dark-mode palette and the AI summary cards on screen #3. We refined the contrast as per David Chen’s suggestion.',
+    approvedBy: null,
+    approvedAt: null,
+    approvalSignature: null,
+    comments: [
+      {
+        id: 'c-1',
+        author: 'Elena Rostova',
+        avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80',
+        role: 'Lead UI/UX Designer',
+        text: 'Uploaded v2 addressing the tab bar spacing and the checkout modal button prominence.',
+        timestamp: 'Nov 23, 2026, 03:45 PM',
+      },
+      {
+        id: 'c-2',
+        author: 'David Chen',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+        role: 'Client Team',
+        text: 'Looking much cleaner! Sarah, could you check the primary CTA on the second screen?',
+        timestamp: 'Nov 23, 2026, 05:10 PM',
+      },
+    ],
+    pinAnnotations: [
+      {
+        id: 'pin-1',
+        x: 42,
+        y: 35,
+        author: 'David Chen',
+        text: 'Can we make this AI insight card slightly more prominent with a purple glow border?',
+        timestamp: 'Nov 23, 05:12 PM',
+      },
+    ],
+  },
+  {
+    id: 'del-102',
+    projectId: 'TP-2026-014',
+    milestoneId: 'm2',
+    name: 'SaaS Multi-Tenant REST API & Microservice Architecture Doc',
+    service: 'Mobile / Application Development and SaaS',
+    version: 'v1',
+    status: 'Approved',
+    uploadDate: '2026-11-15',
+    dueDate: '2026-11-20',
+    fileType: 'doc',
+    previewUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80',
+    description: 'Detailed OpenAPI 3.0 specification covering 34 endpoints, JWT authentication tokens, rate limiting rules, and PostgreSQL database migrations.',
+    notesFromTeam: 'Validated with Postman collection test suite (100% pass rate).',
+    approvedBy: 'Sarah Jenkins (Founder & CEO)',
+    approvedAt: '2026-11-18 11:32 AM',
+    approvalSignature: 'SIG-VERIFIED-SJ-20261118-8832',
+    comments: [
+      {
+        id: 'c-3',
+        author: 'Sarah Jenkins',
+        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
+        role: 'Client (Main User)',
+        text: 'API schema matches our security compliance checklist. Approved for development.',
+        timestamp: 'Nov 18, 2026, 11:32 AM',
+      },
+    ],
+    pinAnnotations: [],
+  },
+  {
+    id: 'del-103',
+    projectId: 'TP-2026-014',
+    milestoneId: 'm2',
+    name: 'iOS TestFlight Alpha Build (v0.8.2) & APK Release',
+    service: 'Mobile / Application Development and SaaS',
+    version: 'v1',
+    status: 'Delivered',
+    uploadDate: '2026-11-24',
+    dueDate: '2026-11-29',
+    fileType: 'test_build',
+    previewUrl: 'https://testflight.apple.com/join/tenspick-nexus-demo',
+    description: 'Downloadable test build for internal QA testing on iOS and Android devices. Includes biometric Face ID login and background sync.',
+    notesFromTeam: 'Install via TestFlight invitation sent to client team emails. Android APK also downloadable directly below.',
+    approvedBy: null,
+    approvedAt: null,
+    approvalSignature: null,
+    comments: [],
+    pinAnnotations: [],
+  },
+  {
+    id: 'del-104',
+    projectId: 'TP-2026-008',
+    milestoneId: 'm3_aura',
+    name: 'Aura Luxury Staging Website & Performance Speed Audit',
+    service: 'Web Development and E-commerce',
+    version: 'Final',
+    status: 'Under Review',
+    uploadDate: '2026-11-22',
+    dueDate: '2026-11-28',
+    fileType: 'staging_link',
+    previewUrl: 'https://aura-staging.tenspick.dev',
+    description: 'Full interactive staging store on fast edge CDN. Google Lighthouse score 98/100, custom video banners, and dynamic currency switcher.',
+    notesFromTeam: 'Test dummy checkout using test credit card credentials provided in notes.',
+    approvedBy: null,
+    approvedAt: null,
+    approvalSignature: null,
+    comments: [
+      {
+        id: 'c-4',
+        author: 'Alex Rivera',
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+        role: 'Project Manager',
+        text: 'Staging is deployed! Please run a test order through the checkout drawer.',
+        timestamp: 'Nov 22, 2026, 02:20 PM',
+      },
+    ],
+    pinAnnotations: [],
+  },
+  {
+    id: 'del-105',
+    projectId: 'TP-2026-008',
+    milestoneId: 'm1_aura',
+    name: 'Brand Identity Suite, Typography & Logo Guidelines',
+    service: 'Creative and Branding',
+    version: 'Final',
+    status: 'Approved',
+    uploadDate: '2026-11-10',
+    dueDate: '2026-11-14',
+    fileType: 'branding_assets',
+    previewUrl: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=1200&auto=format&fit=crop&q=80',
+    description: 'Full brand manual: Vector SVG/PNG logo marks, dark & gold accent color codes (#111111, #D4AF37), web fonts, and social media post templates.',
+    notesFromTeam: 'Delivered in zip archive containing transparent PNGs, SVG master vectors, and PDF guidelines.',
+    approvedBy: 'David Chen (Head of Product Marketing)',
+    approvedAt: '2026-11-12 04:15 PM',
+    approvalSignature: 'SIG-VERIFIED-DC-20261112-9014',
+    comments: [],
+    pinAnnotations: [],
+  },
+  {
+    id: 'del-106',
+    projectId: 'TP-2026-022',
+    milestoneId: 'm1_flow',
+    name: 'FlowSync AI Automation Architecture & Trigger Flowchart',
+    service: 'AI Automation',
+    version: 'v1',
+    status: 'Delivered',
+    uploadDate: '2026-11-24',
+    dueDate: '2026-11-29',
+    fileType: 'workflow_diagram',
+    previewUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&fit=crop&q=80',
+    description: 'Detailed diagram illustrating WhatsApp webhook ingress, OpenAI/Claude reasoning pipeline, vector embeddings search, and HubSpot CRM record creation.',
+    notesFromTeam: 'Review the fallback path when user requests a human support rep.',
+    approvedBy: null,
+    approvedAt: null,
+    approvalSignature: null,
+    comments: [],
+    pinAnnotations: [],
+  },
+  {
+    id: 'del-107',
+    projectId: 'TP-2026-003',
+    milestoneId: 'm3_fin',
+    name: 'FinPulse Enterprise Source Code, Docker Handover & Admin Guide',
+    service: 'CRM, POS and Custom Software',
+    version: 'Final',
+    status: 'Approved',
+    uploadDate: '2026-10-10',
+    dueDate: '2026-10-14',
+    fileType: 'source_handover',
+    previewUrl: 'https://github.com/tenspick-enterprise/finpulse-core',
+    description: 'Full production source code handover, Docker compose configs, CI/CD GitHub Actions pipelines, and recorded admin walkthrough video.',
+    notesFromTeam: 'Delivered alongside completed warranty certificate and signed IP ownership rights transfer.',
+    approvedBy: 'Sarah Jenkins (Founder & CEO)',
+    approvedAt: '2026-10-12 02:40 PM',
+    approvalSignature: 'SIG-VERIFIED-SJ-20261012-1002',
+    comments: [],
+    pinAnnotations: [],
+  },
+];
+
+// Deliverables Templates per Service (Section 7.2 of PDF)
+export const SERVICE_DELIVERABLES_TEMPLATES = {
+  'Web Development and E-commerce': [
+    { title: 'Sitemap and wireframes', description: 'Information architecture and low-fidelity user flow layouts.' },
+    { title: 'UI design mockups (Figma link or PDF)', description: 'Pixel-perfect visual screens, responsive breakpoints, design tokens.' },
+    { title: 'Staging / test website link', description: 'Edge CDN password-protected staging environment for client QA.' },
+    { title: 'Final live website URL', description: 'Production deployment with SSL certificate and custom domain propagation.' },
+    { title: 'Source code or repository access', description: 'Clean Git repository transfer with complete branch history.' },
+    { title: 'Admin panel login and user guide', description: 'CMS credentials, content editing instructions, and recorded walkthrough.' },
+    { title: 'Domain, hosting and SSL details', description: 'Hosting infrastructure config, registrar DNS records, and SSL renewals.' },
+    { title: 'SEO basics setup', description: 'Meta tags, Open Graph preview cards, sitemap.xml, Google Analytics & Search Console.' },
+    { title: 'Testing report (mobile, browser, speed)', description: 'Lighthouse 90+ report, cross-browser compatibility matrix, load time tests.' },
+  ],
+  'Mobile / Application Development and SaaS': [
+    { title: 'Requirement document (SRS) and feature list', description: 'Functional specifications, API contract schemas, user permission roles.' },
+    { title: 'App design screens and prototype', description: 'Clickable interactive mobile Figma prototype with smooth micro-interactions.' },
+    { title: 'Test build (APK / TestFlight link)', description: 'Weekly beta build deployment for iOS TestFlight and Android APK installation.' },
+    { title: 'Play Store / App Store publishing details', description: 'App privacy declarations, metadata, store screenshots, age ratings, submission.' },
+    { title: 'API documentation and source code handover', description: 'Postman collection / Swagger docs and GitHub repository transfer.' },
+    { title: 'User manual and training session recording', description: 'End-user video guide and administrative training session replay.' },
+  ],
+  'CRM, POS and Custom Software': [
+    { title: 'Process flow and database design', description: 'Relational entity diagrams (ERD), table indexes, and workflow logic charts.' },
+    { title: 'Module-wise demo videos', description: '5-minute deep dives into every key module (Inventory, Billing, Roles, Reports).' },
+    { title: 'Test environment and live system access', description: 'Sandboxed UAT environment populated with realistic sample business data.' },
+    { title: 'User roles, credentials and permissions sheet', description: 'Super Admin, Manager, Cashier/Staff privilege matrix and credential vault.' },
+    { title: 'Data migration report', description: 'Validation audit proving 100% data fidelity from legacy databases.' },
+    { title: 'Training material and video tutorials', description: 'Operator manuals and interactive onboarding guides for company staff.' },
+    { title: 'Support and maintenance period details', description: 'SLA response times, critical hotline contacts, and scheduled bug patch calendar.' },
+  ],
+  'AI Automation': [
+    { title: 'Workflow diagram (what triggers what)', description: 'Visual node orchestration showing webhook listeners, filters, and LLM routes.' },
+    { title: 'Tools and integrations used (WhatsApp, Sheets, CRM)', description: 'Comprehensive inventory of API connectors, rate limits, and fallback paths.' },
+    { title: 'Test results and sample outputs', description: 'Benchmark matrix evaluating accuracy, latency, and cost per execution.' },
+    { title: 'Access details and a how-to-use guide', description: 'Prompt customization guide and administrative dashboard login.' },
+    { title: 'Monitoring and error-handling notes', description: 'Alerting thresholds, retry logic, and human agent takeover triggers.' },
+  ],
+  'Creative and Branding (Logo, Video Editing, Thumbnails)': [
+    { title: 'Logo Suite & Brand Guidelines', description: 'Concept options, vector SVG/PNG/PDF (light/dark/transparent), hex colors, fonts.' },
+    { title: 'Video Editing Deliverables', description: 'Script/storyboard, rough cut, final master in 4K/1080p, captions (.SRT), project files.' },
+    { title: 'Thumbnails & Graphic Assets', description: 'CTR-optimized high-impact thumbnails in JPG/PNG format across all standard ratios.' },
+    { title: 'Social media creatives', description: 'Editable Canva/Figma templates for LinkedIn, Instagram reels, and Twitter/X.' },
+  ],
+  'Digital Marketing': [
+    { title: 'Strategy and content calendar', description: '30-day scheduled distribution roadmap with copy hooks and visual briefs.' },
+    { title: 'Ad creatives and copy for approval', description: 'High-converting ad variations (A/B testing hooks, headlines, video cuts).' },
+    { title: 'Campaign reports (reach, clicks, leads, CPL)', description: 'Weekly dashboard export showing ROAS, Cost Per Acquisition, and funnel drops.' },
+    { title: 'Monthly performance summary and next-month plan', description: 'Executive recap of pipeline impact and optimized budget allocations.' },
+  ],
+};
+
+// Feedback Data (Section 8 of PDF)
+export const INITIAL_FEEDBACK_ITEMS = [
+  {
+    id: 'CR-104',
+    type: 'change_request',
+    projectId: 'TP-2026-014',
+    deliverableId: 'del-101',
+    deliverableName: 'Nexus Mobile App UI/UX Mockups (v2)',
+    clientName: 'David Chen',
+    clientEmail: 'david.chen@acmecorp.io',
+    decision: 'Request changes',
+    comments: 'The AI document scanner screen looks great, but the primary scan button gets obscured on smaller iPhones. Could we anchor it with safe-area padding?',
+    changeType: 'Design', // Design, Content, Functionality, Bug, Other
+    priority: 'Medium', // Low, Medium, High
+    status: 'In Progress', // Received, In Progress, Done
+    expectedResponseDate: '2026-11-26',
+    createdAt: '2026-11-23 05:20 PM',
+    resolutionNotes: 'Elena Rostova updated layout constraints in Figma. Pushing v2.1 patch.',
+  },
+  {
+    id: 'CR-101',
+    type: 'change_request',
+    projectId: 'TP-2026-008',
+    deliverableId: 'del-105',
+    deliverableName: 'Brand Identity Guide & Logo Suite',
+    clientName: 'Sarah Jenkins',
+    clientEmail: 'sarah.jenkins@acmecorp.io',
+    decision: 'Approve with minor changes',
+    comments: 'Please include the CMYK print color profiles in the PDF appendix for luxury packaging offset printing.',
+    changeType: 'Content',
+    priority: 'Low',
+    status: 'Done',
+    expectedResponseDate: '2026-11-13',
+    createdAt: '2026-11-11 10:15 AM',
+    resolutionNotes: 'CMYK FOGRA39 profiles added to page 18 of brand manual.',
+  },
+];
+
+export const INITIAL_MILESTONE_CHECKINS = [
+  {
+    id: 'chk-1',
+    projectId: 'TP-2026-014',
+    milestoneName: 'Discover and Define',
+    clientName: 'Sarah Jenkins',
+    satisfaction: 5, // 1-5 stars
+    communicationClear: 'Yes', // Yes / Somewhat / No
+    timelineOnTrack: 'Yes', // Yes / No
+    worryNotes: 'None at all! The SRS document was one of the most thorough we have ever reviewed.',
+    createdAt: '2026-10-24 04:00 PM',
+  },
+  {
+    id: 'chk-2',
+    projectId: 'TP-2026-008',
+    milestoneName: 'Design and Build',
+    clientName: 'David Chen',
+    satisfaction: 4,
+    communicationClear: 'Yes',
+    timelineOnTrack: 'Yes',
+    worryNotes: 'Just eager to test the Shopify 3D product visualizer on mobile browsers.',
+    createdAt: '2026-10-29 02:30 PM',
+  },
+];
+
+export const INITIAL_FINAL_FEEDBACK = [
+  {
+    id: 'ff-001',
+    projectId: 'TP-2026-003',
+    projectName: 'FinPulse B2B Enterprise Portal',
+    serviceType: 'CRM, POS and Custom Software',
+    clientName: 'Sarah Jenkins',
+    company: 'Acme Technologies Inc.',
+    projectManager: 'Alex Rivera',
+    submittedAt: '2026-10-14 11:20 AM',
+    ratings: {
+      finalWorkQuality: 5,
+      designCreativity: 5,
+      meetingRequirements: 5,
+      deliveryOnTime: 5,
+      communicationResponsiveness: 5,
+      teamProfessionalism: 5,
+      valueForMoney: 5,
+      easeOfUsingPortal: 5,
+    },
+    npsScore: 10, // 0-10
+    openAnswers: {
+      whatDidYouLikeMost: 'The transparency and speed. Having all deliverables, revision counters, and approvals centralized in this portal meant zero lost messages on WhatsApp.',
+      whatCanWeImprove: 'Everything was smooth; perhaps an automatic Slack webhook for new deliverable alerts would be even cooler.',
+      anyIssuesFaced: 'None! Delivered 3 days ahead of our original deadline.',
+      additionalServicesInterested: 'AI Automation (FlowSync) and Mobile SaaS (Nexus)',
+    },
+    permissions: {
+      canUseAsTestimonial: true,
+      canShowLogo: true,
+      googleReviewClicked: true,
+      interestedInMaintenance: 'Yes', // Yes / No / Call me
+    },
+    publishedToWebsite: true,
+    alertTriggered: false, // true if any rating <= 3 stars
+  },
+];
+
+// Messages / Updates (Section 9 of PDF)
+export const INITIAL_MESSAGES = [
+  {
+    id: 'msg-1',
+    projectId: 'TP-2026-014',
+    sender: 'Alex Rivera (Project Manager)',
+    senderAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    role: 'pm',
+    isWeeklyUpdate: true,
+    title: '🚀 Weekly Sprint Progress Report (Nov 17 - Nov 24)',
+    content: `Hi Sarah & David! Here is your weekly executive summary for Nexus AI SaaS:
+
+1. **What we achieved this week:**
+   - Completed real-time WebSocket syncing for active team sessions.
+   - Finished Dark Mode visual styling across all 14 SaaS dashboard screens.
+   - Deployed Alpha TestFlight build v0.8.2 to test devices.
+2. **Next week's focus:**
+   - Finalizing Stripe billing checkout & webhook listeners.
+   - Conducting end-to-end security audit on file extraction endpoints.
+3. **Items requiring your action:**
+   - Review and approve the updated v2 Mobile Prototype in the Deliverables tab.
+   - Provide Stripe Live API keys when ready for production config.
+
+Thank you for the quick turnarounds! Let us know if you need a quick sync call.`,
+    timestamp: 'Yesterday at 05:20 PM',
+    attachments: [],
+  },
+  {
+    id: 'msg-2',
+    projectId: 'TP-2026-014',
+    sender: 'Sarah Jenkins (CEO)',
+    senderAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
+    role: 'client',
+    isWeeklyUpdate: false,
+    content: 'Thank you Alex! The team reviewed the TestFlight build today and it feels lightning fast. David submitted a small change request on the scanner CTA padding, but otherwise we are thrilled.',
+    timestamp: 'Yesterday at 06:40 PM',
+    attachments: [],
+  },
+  {
+    id: 'msg-3',
+    projectId: 'TP-2026-014',
+    sender: 'Elena Rostova (Lead Dev)',
+    senderAvatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80',
+    role: 'team',
+    isWeeklyUpdate: false,
+    content: 'Awesome to hear! We will push the padding adjustment tonight and update the build on TestFlight.',
+    timestamp: 'Today at 09:15 AM',
+    attachments: [],
+  },
+];
+
+// Files and Documents (Section 9 of PDF)
+export const INITIAL_FILES = [
+  {
+    id: 'f-1',
+    projectId: 'TP-2026-014',
+    name: 'Tenspick_AcmeCorp_Master_Services_Agreement_Signed.pdf',
+    category: 'Contracts & NDA',
+    size: '1.4 MB',
+    uploadedBy: 'Tenspick Legal',
+    uploadDate: '2026-10-12',
+    secureDownloadUrl: 'https://tenspick.com/vault/download?token=signed-msa-883',
+  },
+  {
+    id: 'f-2',
+    projectId: 'TP-2026-014',
+    name: 'Mutual_Non_Disclosure_Agreement_Tenspick_Acme.pdf',
+    category: 'Contracts & NDA',
+    size: '890 KB',
+    uploadedBy: 'Sarah Jenkins',
+    uploadDate: '2026-10-10',
+    secureDownloadUrl: 'https://tenspick.com/vault/download?token=nda-acme-772',
+  },
+  {
+    id: 'f-3',
+    projectId: 'TP-2026-014',
+    name: 'Nexus_SaaS_Software_Requirements_Specification_v1.2.pdf',
+    category: 'Requirement Docs & Notes',
+    size: '4.8 MB',
+    uploadedBy: 'Alex Rivera',
+    uploadDate: '2026-10-23',
+    secureDownloadUrl: 'https://tenspick.com/vault/download?token=srs-v1-2',
+  },
+  {
+    id: 'f-4',
+    projectId: 'TP-2026-014',
+    name: 'Acme_Official_Brand_Kit_SVG_Icons_and_Guidelines.zip',
+    category: 'Client Assets',
+    size: '32.4 MB',
+    uploadedBy: 'David Chen',
+    uploadDate: '2026-10-18',
+    secureDownloadUrl: 'https://tenspick.com/vault/download?token=acme-brand-assets',
+  },
+  {
+    id: 'f-5',
+    projectId: 'TP-2026-008',
+    name: 'Aura_Luxury_Shopify_Product_Catalog_Final_v3.csv',
+    category: 'Client Assets',
+    size: '2.1 MB',
+    uploadedBy: 'Sarah Jenkins',
+    uploadDate: '2026-09-20',
+    secureDownloadUrl: 'https://tenspick.com/vault/download?token=aura-catalog-v3',
+  },
+];
+
+// Invoices and Payments (Section 9 of PDF)
+export const INITIAL_INVOICES = [
+  {
+    id: 'INV-2026-088',
+    invoiceNumber: 'TP-INV-2026-088',
+    projectId: 'TP-2026-014',
+    projectName: 'Nexus AI SaaS Platform & Mobile App',
+    type: 'Milestone 2 Invoice (Design & Build 50%)',
+    amount: 145000, // INR
+    gstRate: 18,
+    gstAmount: 26100,
+    totalAmount: 171100,
+    status: 'Pending', // Paid, Pending, Overdue
+    issueDate: '2026-11-20',
+    dueDate: '2026-11-30',
+    paidAt: null,
+    paymentMethod: null,
+    items: [
+      { description: 'Milestone 2: SaaS Core Dashboard & API Integration', quantity: 1, rate: 85000, amount: 85000 },
+      { description: 'React Native iOS & Android TestFlight Builds', quantity: 1, rate: 60000, amount: 60000 },
+    ],
+  },
+  {
+    id: 'INV-2026-074',
+    invoiceNumber: 'TP-INV-2026-074',
+    projectId: 'TP-2026-014',
+    projectName: 'Nexus AI SaaS Platform & Mobile App',
+    type: 'Advance Project Kickoff (30%)',
+    amount: 90000,
+    gstRate: 18,
+    gstAmount: 16200,
+    totalAmount: 106200,
+    status: 'Paid',
+    issueDate: '2026-10-12',
+    dueDate: '2026-10-20',
+    paidAt: '2026-10-15 02:40 PM',
+    paymentMethod: 'UPI / HDFC Bank Transfer',
+    items: [
+      { description: 'Project Initiation, SRS Documentation & Wireframing', quantity: 1, rate: 90000, amount: 90000 },
+    ],
+  },
+  {
+    id: 'INV-2026-061',
+    invoiceNumber: 'TP-INV-2026-061',
+    projectId: 'TP-2026-008',
+    projectName: 'Aura Luxury Brand Identity & E-commerce',
+    type: 'Final Handover Milestone Invoice',
+    amount: 110000,
+    gstRate: 18,
+    gstAmount: 19800,
+    totalAmount: 129800,
+    status: 'Pending',
+    issueDate: '2026-11-22',
+    dueDate: '2026-11-29',
+    paidAt: null,
+    paymentMethod: null,
+    items: [
+      { description: 'Headless Shopify Storefront, Edge CDN & SEO Optimization', quantity: 1, rate: 110000, amount: 110000 },
+    ],
+  },
+  {
+    id: 'INV-2026-035',
+    invoiceNumber: 'TP-INV-2026-035',
+    projectId: 'TP-2026-003',
+    projectName: 'FinPulse B2B Enterprise Portal',
+    type: 'Final Handover & AMC Advance',
+    amount: 220000,
+    gstRate: 18,
+    gstAmount: 39600,
+    totalAmount: 259600,
+    status: 'Paid',
+    issueDate: '2026-10-10',
+    dueDate: '2026-10-15',
+    paidAt: '2026-10-12 11:30 AM',
+    paymentMethod: 'Direct NEFT/RTGS Transfer',
+    items: [
+      { description: 'Enterprise Custom Portal Deployment & Source Handover', quantity: 1, rate: 180000, amount: 180000 },
+      { description: 'Annual Maintenance Contract (Q1 advance retainage)', quantity: 1, rate: 40000, amount: 40000 },
+    ],
+  },
+];
+
+// Support Tickets (Section 9 of PDF)
+export const INITIAL_TICKETS = [
+  {
+    id: 'TCK-802',
+    projectId: 'TP-2026-003',
+    projectName: 'FinPulse B2B Enterprise Portal',
+    title: 'CSV Export column delimiter formatting in European locales',
+    category: 'Bug',
+    priority: 'Medium',
+    status: 'Open', // Open, In Progress, Resolved, Closed
+    slaRemainingHours: 18, // Response within 24 hours
+    freeSupportActive: true,
+    freeSupportDaysRemaining: 47, // remaining of 90 days
+    clientName: 'Sarah Jenkins',
+    createdAt: '2026-11-24 10:30 AM',
+    description: 'When users with German locale export the payroll ledger, commas are treated as decimal separators causing 2 columns to shift in Excel.',
+    assignedTo: 'Elena Rostova',
+    updates: [
+      {
+        author: 'Elena Rostova',
+        timestamp: '2026-11-24 01:15 PM',
+        message: 'Investigated and identified the locale-aware number parser. Applying patch to automatically quote text cells with semicolon fallbacks.',
+      },
+    ],
+  },
+  {
+    id: 'TCK-791',
+    projectId: 'TP-2026-003',
+    projectName: 'FinPulse B2B Enterprise Portal',
+    title: 'Add custom company logo to generated PDF salary slips',
+    category: 'Small Change',
+    priority: 'Low',
+    status: 'Resolved',
+    slaRemainingHours: 0,
+    freeSupportActive: true,
+    freeSupportDaysRemaining: 47,
+    clientName: 'David Chen',
+    createdAt: '2026-11-18 03:00 PM',
+    description: 'Can we add an option in Settings for tenant admins to upload a secondary brand crest for official slips?',
+    assignedTo: 'Elena Rostova',
+    updates: [
+      {
+        author: 'Elena Rostova',
+        timestamp: '2026-11-19 11:00 AM',
+        message: 'Feature added to Settings -> Branding tab. Tenant crest now appears on top right of all generated PDF slips.',
+      },
+    ],
+  },
+];
+
+// Meetings & Call Scheduling (Section 9 of PDF)
+export const INITIAL_MEETINGS = [
+  {
+    id: 'meet-1',
+    title: 'Sprint Review & Mobile Beta Walkthrough',
+    projectId: 'TP-2026-014',
+    date: '2026-11-26',
+    time: '04:30 PM - 05:15 PM IST',
+    meetingType: 'Sprint Review',
+    status: 'Upcoming',
+    host: 'Alex Rivera (Project Manager)',
+    attendees: ['Sarah Jenkins', 'David Chen', 'Elena Rostova'],
+    meetUrl: 'https://meet.google.com/tpk-nexus-sync',
+    notes: 'Agenda: 1. Review mobile app gestures. 2. Verify Stripe pricing tier webhooks. 3. Finalize launch checklist.',
+  },
+  {
+    id: 'meet-0',
+    title: 'Brand Positioning & Design Tokens Handoff',
+    projectId: 'TP-2026-008',
+    date: '2026-11-10',
+    time: '03:00 PM - 03:45 PM IST',
+    meetingType: 'Strategy & Review',
+    status: 'Completed',
+    host: 'Alex Rivera (Project Manager)',
+    attendees: ['David Chen', 'Elena Rostova'],
+    meetUrl: 'https://meet.google.com/tpk-aura-brand',
+    notes: 'Approved the dark luxury palette and requested CMYK vector export for packaging.',
+    recordingUrl: 'https://tenspick.com/recordings/aura-brand-handoff-nov10.mp4',
+  },
+];
+
+// Legal and Policy Documents (Section 11 of PDF)
+export const LEGAL_POLICIES = {
+  terms: {
+    title: 'Terms and Conditions',
+    lastUpdated: 'November 2026',
+    summary: 'Master conditions governing project scope, client obligations, milestone approvals, and delivery warranties at Tenspick.',
+    sections: [
+      { heading: '1. Project Scope & Deliverables', content: 'Tenspick agrees to deliver services in accordance with the agreed Scope of Work documented in your Project Details page. Any work requested outside the agreed scope will be evaluated as a separate feature or billed at our standard hourly change rate.' },
+      { heading: '2. Client Responsibilities', content: 'Timely project execution relies on client cooperation, including provision of necessary brand assets, API credentials, domain access, and feedback responses within 3 business days of deliverable submissions.' },
+      { heading: '3. Acceptance and Approvals', content: 'Deliverables are reviewed through this portal. Clicking "Approve" creates a legally binding record of delivery acceptance, enabling Tenspick to proceed to subsequent milestones.' },
+    ],
+  },
+  privacy: {
+    title: 'Privacy Policy',
+    lastUpdated: 'November 2026',
+    summary: 'How client confidential data, proprietary codebases, credentials, and uploaded files are protected, encrypted, and isolated.',
+    sections: [
+      { heading: '1. Data Isolation & Role-Based Access', content: 'Each client operates in an isolated tenant environment. Your files, deliverables, and invoices can only be accessed by authorized members of your company and assigned Tenspick team specialists.' },
+      { heading: '2. Encryption & Secure Storage', content: 'All project files, communication logs, and credentials are encrypted in transit via TLS 1.3 and at rest with AES-256 cloud encryption. Expiring download URLs prevent unauthorized file sharing.' },
+      { heading: '3. Data Retention and Deletion', content: 'Upon final project handover and full contract settlement, clients may request complete archival or cryptographic deletion of staging copies.' },
+    ],
+  },
+  revisions: {
+    title: 'Revision Policy',
+    lastUpdated: 'November 2026',
+    summary: 'Transparent guidelines on included revisions, what constitutes a revision cycle, and transparent extra revision pricing.',
+    sections: [
+      { heading: '1. Included Revisions', content: 'Every standard Tenspick project contract includes three (3) full revision cycles per major deliverable milestone. A revision cycle encompasses all consolidated feedback provided within that iteration.' },
+      { heading: '2. Scope of Revisions', content: 'Revisions encompass visual tweaks, layout rebalancing, typography, color adjustments, copy updates, and minor workflow tuning within the agreed scope. Fundamental architectural pivots or net-new feature additions are treated as scope enhancements.' },
+      { heading: '3. Additional Revisions', content: 'If additional revision rounds are requested beyond the 3 included cycles, they are clearly quoted at a transparent discounted rate of $45 / ₹3,500 per hour with upfront client written consent.' },
+    ],
+  },
+  handover: {
+    title: 'Delivery and Handover Policy',
+    lastUpdated: 'November 2026',
+    summary: 'The exact step-by-step process of transitioning production assets, code, hosting accounts, and ownership to your organization.',
+    sections: [
+      { heading: '1. Final Handover Checklist', content: 'Every project concludes with our 6-point Handover Checklist: complete source code repository transfer, cloud hosting and SSL credentials transfer, recorded admin walkthrough training, final invoice clearance, and warranty certificate issuance.' },
+      { heading: '2. Acceptance Sign-Off', content: 'When all deliverables are marked Approved, the project transitions to "Completed" status and the Final Project Feedback Form opens.' },
+    ],
+  },
+  ownership: {
+    title: 'Ownership of Work (IP Rights)',
+    lastUpdated: 'November 2026',
+    summary: 'Unconditional intellectual property rights transfer upon 100% contract payment clearance.',
+    sections: [
+      { heading: '1. Full Intellectual Property Transfer', content: 'Tenspick assigns 100% of the worldwide intellectual property, design copyrights, custom source code, trademarks, and patentable assets created specifically for the client upon receipt of full settlement of all project invoices.' },
+      { heading: '2. Third-Party Licenses', content: 'Any open-source components, licensed fonts, or commercial stock media incorporated retain their respective licenses and are fully declared in your handover package.' },
+      { heading: '3. Portfolio Display Rights', content: 'Tenspick reserves the right to showcase the completed work in our design portfolio and case studies only if explicit permission is granted in your Final Feedback Form.' },
+    ],
+  },
+  support: {
+    title: 'Support, Warranty & Maintenance (AMC)',
+    lastUpdated: 'November 2026',
+    summary: 'Complimentary post-launch warranty coverage, guaranteed SLA response windows, and long-term Annual Maintenance options.',
+    sections: [
+      { heading: '1. Complimentary Warranty Period', content: 'All custom development projects include a complimentary 60-to-90 day bug-fix warranty starting from the final delivery date. Any defect or bug within the agreed scope is remediated at zero additional cost.' },
+      { heading: '2. Support SLA Response Times', content: 'Critical blockers: response within 4 hours. General bugs and UI inquiries: response within 24 hours. Tickets can be tracked live in the Support Tickets tab.' },
+      { heading: '3. Annual Maintenance Contracts (AMC)', content: 'Post-warranty retainer plans cover proactive cloud server monitoring, security patching, library upgrades, scheduled backups, and dedicated monthly developer hours for incremental improvements.' },
+    ],
+  },
+  confidentiality: {
+    title: 'Confidentiality Statement',
+    lastUpdated: 'November 2026',
+    summary: 'Strict non-disclosure commitments safeguarding your proprietary trade secrets, algorithms, and business strategy.',
+    sections: [
+      { heading: '1. Strict Non-Disclosure', content: 'Tenspick and its team members maintain strict confidentiality regarding all client proprietary information, customer data, product roadmaps, and business operations.' },
+      { heading: '2. Non-Compete Guarantee', content: 'Tenspick will never repurpose or reuse your custom proprietary code or confidential client data for any competitor.' },
+    ],
+  },
+  refund: {
+    title: 'Refund & Cancellation Policy',
+    lastUpdated: 'November 2026',
+    summary: 'Fair milestone-based termination and prorated compensation policies.',
+    sections: [
+      { heading: '1. Milestone-Based Protection', content: 'Projects are structured in clear milestones (Discover, Design & Build, Launch). In the unlikely event of project termination before a subsequent milestone begins, unworked milestone funds are refunded in full.' },
+      { heading: '2. Cancellation Notice', content: 'Either party may initiate project termination with 7 days written notice. Payment is due only for deliverables completed, approved, or in active production up to the notice date.' },
+    ],
+  },
+};
+
+// Admin Reports and Metrics (Section 10 of PDF)
+export const INITIAL_ADMIN_METRICS = {
+  averageRating: 4.9,
+  nps: 78,
+  onTimeDeliveryRate: 96, // percentage
+  pendingApprovalsCount: 3,
+  activeRevisionsCount: 3,
+  totalProjects: 14,
+  completedProjects: 10,
+  activeClients: 12,
+  totalRevenue: 2850000, // INR
+};
+
+export const INITIAL_TESTIMONIALS = [
+  {
+    id: 'test-1',
+    clientName: 'Sarah Jenkins',
+    company: 'Acme Technologies Inc.',
+    role: 'Founder & CEO',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
+    rating: 5,
+    quote: 'The transparency and speed of Tenspick is unmatched. Having all deliverables, revision counters, and approvals centralized in this portal meant zero lost messages on WhatsApp.',
+    service: 'CRM & Custom Enterprise Software',
+    published: true,
+    publishedAt: '2026-10-15',
+  },
+  {
+    id: 'test-2',
+    clientName: 'Marcus Sterling',
+    company: 'Vanguard Logistics',
+    role: 'Chief Operating Officer',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
+    rating: 5,
+    quote: 'From Spark to Scale isn’t just their slogan; it’s literally what Tenspick did for our supply chain tracking portal. Delivered 2 weeks early with phenomenal code quality.',
+    service: 'AI Automation & Web Portal',
+    published: true,
+    publishedAt: '2026-09-28',
+  },
+];
+
